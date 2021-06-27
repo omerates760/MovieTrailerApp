@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.monofire.movietrailerapp.data.model.Movie" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imgMoviePoster"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:imgUrl="@{movie.backdropPath}"
+                android:transitionName="media_transition"
+                app:layout_constraintEnd_toEndOf="@id/cardViewLayout"
+                app:layout_constraintStart_toStartOf="@id/cardViewLayout"
+                app:layout_constraintTop_toTopOf="@id/cardViewLayout"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintWidth_percent="0.9" />
+
+            <TextView
+                android:id="@+id/txtMovieTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:maxLines="3"
+                android:text="@{movie.title}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imgMoviePoster"
+                app:layout_constraintStart_toStartOf="@id/imgMoviePoster"
+                app:layout_constraintTop_toBottomOf="@id/imgMoviePoster"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintWidth_percent="0.9" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="10"
+                app:custom_rating="@{movie.voteAverage}"
+                app:layout_constraintBottom_toTopOf="@id/txtReleaseDate"
+                app:layout_constraintEnd_toEndOf="@id/txtMovieTitle"
+                app:layout_constraintStart_toStartOf="@id/txtMovieTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtMovieTitle"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <TextView
+                android:id="@+id/txtReleaseDate"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/ic_baseline_date_range_24"
+                app:layout_constraintBottom_toBottomOf="@id/cardViewLayout"
+                app:layout_constraintHeight_percent="0.1"
+                app:layout_constraintStart_toStartOf="@id/imgMoviePoster"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintWidth_percent="0.6"
+                app:textDate="@{movie.releaseDate}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

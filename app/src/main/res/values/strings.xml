@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MovieTrailerApp</string>
+    <string name="search">search</string>
+    <string name="query_error_message">Please enter 2 or more characters.</string>
+    <string name="no_search_results_found">No Search Results Found</string>
+    <string name="retry">Retry</string>
+    <string name="data_could_not_be_loaded">Data could not be loaded</string>
+</resources>
